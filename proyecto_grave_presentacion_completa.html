@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -1783,7 +1783,7 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-left">
-      <div class="eyebrow">Presentación Ejecutiva · Mayo 2026</div>
+      <div class="eyebrow">Presentación Ejecutiva · v3.0 · Junio 2026</div>
       <h1>Proyecto <span class="acronym">GRAVE</span></h1>
       <p class="meaning"><span class="underline">G</span>rupo de <span class="underline">R</span>espuesta <span class="underline">A</span>vanzada para <span class="underline">V</span>idas en <span class="underline">E</span>mergencia</p>
       <p class="subtitle">
@@ -2650,7 +2650,104 @@
               <tr><td><strong>Total piloto</strong></td><td><strong>2,073,965</strong></td><td><strong>33</strong></td><td><strong>62,847</strong></td></tr>
             </tbody>
           </table>
-          <h5>Horizonte temporal del proyecto</h5>
+          
+          <!-- MAPA INTERACTIVO DISTRITOS v3.0 -->
+          <div style="margin:1.5rem 0;padding:1.5rem;background:var(--stone-100);border-radius:12px;border:1px solid var(--stone-200);">
+            <h5 style="font-family:Fraunces,serif;color:var(--mml-blue-dark);margin-bottom:1rem;font-size:1rem;">Mapa esquematico — Distritos del piloto GRAVE</h5>
+            <div style="display:flex;gap:1.5rem;align-items:flex-start;flex-wrap:wrap;">
+              <div style="flex:0 0 auto;position:relative;">
+                <svg id="mapa-grave" viewBox="0 0 280 360" width="240" style="display:block;border-radius:8px;cursor:default;">
+                  <!-- Oceano Pacifico -->
+                  <rect x="0" y="0" width="32" height="360" fill="#D6EAF8" rx="0"/>
+                  <text x="10" y="200" style="font-size:7px;fill:#2980B9;font-family:sans-serif;" transform="rotate(-90,10,200)">Oceano Pacifico</text>
+                  <!-- Lima outline -->
+                  <path d="M32,12 L252,20 L268,135 L258,265 L198,345 L68,342 L32,295 Z" fill="#F5F2E8" stroke="#C9C2AE" stroke-width="1.5"/>
+                  <!-- Comas (norte) 9 motos -->
+                  <path id="dist-comas"
+                        d="M35,17 L252,22 L248,108 L142,115 L72,110 L35,100 Z"
+                        fill="#BE2E32" fill-opacity="0.18" stroke="#BE2E32" stroke-width="2"
+                        style="cursor:pointer;transition:fill-opacity .2s;"
+                        onmouseover="showMTip(event,'COMAS','9 motos','600,307 hab — 66,701 hab/moto','Norte de Lima')"
+                        onmouseout="hideMTip()"/>
+                  <!-- Ate (este) 12 motos -->
+                  <path id="dist-ate"
+                        d="M147,115 L255,110 L265,235 L193,245 L147,208 Z"
+                        fill="#2F3772" fill-opacity="0.18" stroke="#2F3772" stroke-width="2"
+                        style="cursor:pointer;transition:fill-opacity .2s;"
+                        onmouseover="showMTip(event,'ATE','12 motos','743,517 hab — 61,960 hab/moto','Este de Lima')"
+                        onmouseout="hideMTip()"/>
+                  <!-- Cercado de Lima (centro) 5 motos -->
+                  <path id="dist-cercado"
+                        d="M35,112 L142,115 L147,208 L82,218 L35,198 Z"
+                        fill="#C9A961" fill-opacity="0.28" stroke="#C9A961" stroke-width="2"
+                        style="cursor:pointer;transition:fill-opacity .2s;"
+                        onmouseover="showMTip(event,'CERCADO DE LIMA','5 motos','268,000 hab — 53,600 hab/moto','Centro historico')"
+                        onmouseout="hideMTip()"/>
+                  <!-- VMT (sur) 7 motos -->
+                  <path id="dist-vmt"
+                        d="M35,208 L152,212 L195,248 L183,335 L72,338 L35,300 Z"
+                        fill="#BE2E32" fill-opacity="0.12" stroke="#BE2E32" stroke-width="2" stroke-dasharray="5,3"
+                        style="cursor:pointer;transition:fill-opacity .2s;"
+                        onmouseover="showMTip(event,'VILLA MARIA DEL TRIUNFO','7 motos','462,141 hab — 66,020 hab/moto','Sur de Lima')"
+                        onmouseout="hideMTip()"/>
+                  <!-- Labels -->
+                  <text x="140" y="60" text-anchor="middle" style="font-size:9px;font-weight:bold;fill:#8B1F22;font-family:sans-serif;pointer-events:none;">COMAS</text>
+                  <text x="140" y="72" text-anchor="middle" style="font-size:7.5px;fill:#BE2E32;font-family:sans-serif;pointer-events:none;">9 motos</text>
+                  <text x="210" y="180" text-anchor="middle" style="font-size:9px;font-weight:bold;fill:#1F2552;font-family:sans-serif;pointer-events:none;">ATE</text>
+                  <text x="210" y="192" text-anchor="middle" style="font-size:7.5px;fill:#2F3772;font-family:sans-serif;pointer-events:none;">12 motos</text>
+                  <text x="88" y="165" text-anchor="middle" style="font-size:8px;font-weight:bold;fill:#7D5A00;font-family:sans-serif;pointer-events:none;">CERCADO</text>
+                  <text x="88" y="177" text-anchor="middle" style="font-size:7.5px;fill:#7D5A00;font-family:sans-serif;pointer-events:none;">5 motos</text>
+                  <text x="112" y="282" text-anchor="middle" style="font-size:9px;font-weight:bold;fill:#8B1F22;font-family:sans-serif;pointer-events:none;">VMT</text>
+                  <text x="112" y="294" text-anchor="middle" style="font-size:7.5px;fill:#BE2E32;font-family:sans-serif;pointer-events:none;">7 motos</text>
+                  <!-- Total bar -->
+                  <rect x="32" y="348" width="232" height="5" fill="#BE2E32" rx="2"/>
+                  <text x="148" y="360" text-anchor="middle" style="font-size:7px;fill:#666;font-family:sans-serif;">33 motos · 2,073,965 hab · 4 distritos</text>
+                </svg>
+                <div id="mapa-tip" style="display:none;position:absolute;background:#1A1A2E;color:white;border-radius:8px;padding:.55rem .9rem;font-size:.72rem;font-family:sans-serif;pointer-events:none;z-index:20;min-width:175px;box-shadow:0 4px 16px rgba(0,0,0,.35);">
+                  <div id="mt-nombre" style="font-weight:bold;color:#E0C77E;margin-bottom:.25rem;font-size:.78rem;"></div>
+                  <div id="mt-motos" style="color:#fff;"></div>
+                  <div id="mt-pob" style="color:#aaa;font-size:.68rem;margin-top:.1rem;"></div>
+                  <div id="mt-zona" style="color:#C9A961;font-size:.68rem;margin-top:.15rem;"></div>
+                </div>
+              </div>
+              <div style="flex:1;min-width:180px;">
+                <p style="font-size:.82rem;color:var(--stone-600);margin-bottom:1rem;line-height:1.55;">Seleccionados por la MML considerando densidad poblacional, indice de emergencias SAMU 106 y accesibilidad vial para moto en Lima Metropolitana.</p>
+                <div style="display:flex;flex-direction:column;gap:.55rem;">
+                  <div style="display:flex;align-items:center;gap:.6rem;padding:.5rem;background:rgba(190,46,50,.08);border-radius:6px;border-left:3px solid #BE2E32;">
+                    <span style="font-size:1rem;">🔴</span>
+                    <div><strong style="color:#8B1F22;font-size:.78rem;">Comas</strong><br><span style="font-size:.7rem;color:#666;">9 motos · 600,307 hab</span></div>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:.6rem;padding:.5rem;background:rgba(47,55,114,.08);border-radius:6px;border-left:3px solid #2F3772;">
+                    <span style="font-size:1rem;">🔵</span>
+                    <div><strong style="color:#1F2552;font-size:.78rem;">Ate</strong><br><span style="font-size:.7rem;color:#666;">12 motos · 743,517 hab</span></div>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:.6rem;padding:.5rem;background:rgba(201,169,97,.12);border-radius:6px;border-left:3px solid #C9A961;">
+                    <span style="font-size:1rem;">🟡</span>
+                    <div><strong style="color:#7D5A00;font-size:.78rem;">Cercado de Lima</strong><br><span style="font-size:.7rem;color:#666;">5 motos · 268,000 hab</span></div>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:.6rem;padding:.5rem;background:rgba(190,46,50,.06);border-radius:6px;border-left:3px dashed #BE2E32;">
+                    <span style="font-size:1rem;">🔴</span>
+                    <div><strong style="color:#8B1F22;font-size:.78rem;">Villa Maria del Triunfo</strong><br><span style="font-size:.7rem;color:#666;">7 motos · 462,141 hab</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <script>
+          function showMTip(e,n,m,p,z){
+            var t=document.getElementById('mapa-tip');
+            document.getElementById('mt-nombre').textContent=n;
+            document.getElementById('mt-motos').textContent=m;
+            document.getElementById('mt-pob').textContent=p;
+            document.getElementById('mt-zona').textContent=z;
+            t.style.display='block';
+            var pr=t.parentElement.getBoundingClientRect();
+            t.style.left=(e.clientX-pr.left+12)+'px';
+            t.style.top=(e.clientY-pr.top-10)+'px';
+          }
+          function hideMTip(){document.getElementById('mapa-tip').style.display='none';}
+          </script>
+<h5>Horizonte temporal del proyecto</h5>
           <ul>
             <li><strong>Corto plazo (1 a 2 meses):</strong> 33 motos operativas en los 4 distritos del piloto</li>
             <li><strong>Mediano plazo (12 a 24 meses):</strong> evaluación del piloto y rediseño</li>
@@ -2949,6 +3046,231 @@
   </div>
 </section>
 
+
+<!-- GRAFICOS COMPARATIVOS v3.0 -->
+<section id="graficos" style="padding:3.5rem 0;background:var(--stone-100);border-top:2px solid var(--stone-200);">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:2.5rem;">
+      <span style="display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--sisol-red);background:rgba(190,46,50,.08);padding:.3rem 1rem;border-radius:100px;margin-bottom:.8rem;">05 · Analisis Visual</span>
+      <h2 style="font-family:Fraunces,serif;font-size:2rem;color:var(--ink);margin-bottom:.5rem;font-weight:700;letter-spacing:-.02em;">Comparativa <em style="color:var(--sisol-red);font-style:normal;">Estrategica</em></h2>
+      <p style="font-size:.95rem;color:var(--stone-600);max-width:600px;margin:0 auto;">Propuesta A vs B &nbsp;·&nbsp; Distribucion del financiamiento &nbsp;·&nbsp; Inversion y retorno estimado</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;">
+
+      <!-- CHART 1: Prop A vs B -->
+      <div style="background:white;border-radius:14px;padding:1.5rem;box-shadow:0 2px 16px rgba(0,0,0,.06);border:1px solid var(--stone-200);">
+        <h4 style="font-family:Fraunces,serif;font-size:.95rem;color:var(--ink);margin-bottom:.25rem;font-weight:600;">Propuesta A vs Propuesta B</h4>
+        <p style="font-size:.7rem;color:var(--stone-400);margin-bottom:1.2rem;font-family:'JetBrains Mono',monospace;">Puntuacion estrategica 1-5</p>
+        <div style="display:flex;gap:.5rem;margin-bottom:.9rem;flex-wrap:wrap;">
+          <span style="display:inline-flex;align-items:center;gap:4px;font-size:.7rem;color:var(--mml-blue);font-weight:600;"><span style="width:10px;height:10px;background:var(--mml-blue);border-radius:2px;display:inline-block;"></span>Prop. A</span>
+          <span style="display:inline-flex;align-items:center;gap:4px;font-size:.7rem;color:var(--sisol-red);font-weight:600;margin-left:.4rem;"><span style="width:10px;height:10px;background:var(--sisol-red);border-radius:2px;display:inline-block;"></span>Prop. B</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:.75rem;">
+          <div>
+            <div style="font-size:.72rem;color:var(--stone-600);margin-bottom:3px;">Visibilidad politica MML</div>
+            <div style="display:flex;gap:4px;align-items:center;">
+              <div style="flex:1;height:9px;background:#eee;border-radius:5px;overflow:hidden;"><div style="width:40%;height:100%;background:var(--mml-blue);border-radius:5px;opacity:.8;"></div></div>
+              <div style="flex:1;height:9px;background:#eee;border-radius:5px;overflow:hidden;"><div style="width:100%;height:100%;background:var(--sisol-red);border-radius:5px;opacity:.8;"></div></div>
+            </div>
+            <div style="display:flex;gap:4px;font-size:.62rem;color:#aaa;margin-top:1px;"><span style="flex:1;">2/5</span><span style="flex:1;">5/5</span></div>
+          </div>
+          <div>
+            <div style="font-size:.72rem;color:var(--stone-600);margin-bottom:3px;">Escalabilidad a 115 motos</div>
+            <div style="display:flex;gap:4px;align-items:center;">
+              <div style="flex:1;height:9px;background:#eee;border-radius:5px;overflow:hidden;"><div style="width:40%;height:100%;background:var(--mml-blue);border-radius:5px;opacity:.8;"></div></div>
+              <div style="flex:1;height:9px;background:#eee;border-radius:5px;overflow:hidden;"><div style="width:100%;height:100%;background:var(--sisol-red);border-radius:5px;opacity:.8;"></div></div>
+            </div>
+            <div style="display:flex;gap:4px;font-size:.62rem;color:#aaa;margin-top:1px;"><span style="flex:1;">2/5</span><span style="flex:1;">5/5</span></div>
+          </div>
+          <div>
+            <div style="font-size:.72rem;color:var(--stone-600);margin-bottom:3px;">Velocidad implementacion</div>
+            <div style="display:flex;gap:4px;align-items:center;">
+              <div style="flex:1;height:9px;background:#eee;border-radius:5px;overflow:hidden;"><div style="width:60%;height:100%;background:var(--mml-blue);border-radius:5px;opacity:.8;"></div></div>
+              <div style="flex:1;height:9px;background:#eee;border-radius:5px;overflow:hidden;"><div style="width:100%;height:100%;background:var(--sisol-red);border-radius:5px;opacity:.8;"></div></div>
+            </div>
+            <div style="display:flex;gap:4px;font-size:.62rem;color:#aaa;margin-top:1px;"><span style="flex:1;">3/5</span><span style="flex:1;">5/5</span></div>
+          </div>
+          <div>
+            <div style="font-size:.72rem;color:var(--stone-600);margin-bottom:3px;">Autonomia operacional SISOL</div>
+            <div style="display:flex;gap:4px;align-items:center;">
+              <div style="flex:1;height:9px;background:#eee;border-radius:5px;overflow:hidden;"><div style="width:40%;height:100%;background:var(--mml-blue);border-radius:5px;opacity:.8;"></div></div>
+              <div style="flex:1;height:9px;background:#eee;border-radius:5px;overflow:hidden;"><div style="width:100%;height:100%;background:var(--sisol-red);border-radius:5px;opacity:.8;"></div></div>
+            </div>
+            <div style="display:flex;gap:4px;font-size:.62rem;color:#aaa;margin-top:1px;"><span style="flex:1;">2/5</span><span style="flex:1;">5/5</span></div>
+          </div>
+          <div>
+            <div style="font-size:.72rem;color:var(--stone-600);margin-bottom:3px;">Sostenibilidad financiera</div>
+            <div style="display:flex;gap:4px;align-items:center;">
+              <div style="flex:1;height:9px;background:#eee;border-radius:5px;overflow:hidden;"><div style="width:100%;height:100%;background:var(--mml-blue);border-radius:5px;opacity:.8;"></div></div>
+              <div style="flex:1;height:9px;background:#eee;border-radius:5px;overflow:hidden;"><div style="width:80%;height:100%;background:var(--sisol-red);border-radius:5px;opacity:.8;"></div></div>
+            </div>
+            <div style="display:flex;gap:4px;font-size:.62rem;color:#aaa;margin-top:1px;"><span style="flex:1;">5/5</span><span style="flex:1;">4/5</span></div>
+          </div>
+        </div>
+        <div style="margin-top:1rem;padding:.5rem;background:rgba(190,46,50,.06);border-radius:6px;font-size:.72rem;color:var(--sisol-red);font-weight:600;text-align:center;">&#9733; GRAVE recomienda: Propuesta B</div>
+      </div>
+
+      <!-- CHART 2: Donut distribucion -->
+      <div style="background:white;border-radius:14px;padding:1.5rem;box-shadow:0 2px 16px rgba(0,0,0,.06);border:1px solid var(--stone-200);display:flex;flex-direction:column;align-items:center;">
+        <h4 style="font-family:Fraunces,serif;font-size:.95rem;color:var(--ink);margin-bottom:.25rem;font-weight:600;text-align:center;width:100%;">Distribucion del Financiamiento</h4>
+        <p style="font-size:.7rem;color:var(--stone-400);margin-bottom:1.5rem;font-family:'JetBrains Mono',monospace;text-align:center;">Ano 1 completo · S/ 10,462,036</p>
+        <div style="position:relative;width:155px;height:155px;margin:0 auto 1.3rem;">
+          <div style="width:155px;height:155px;border-radius:50%;background:conic-gradient(var(--sisol-red) 0% 88.8%,var(--mml-blue) 88.8% 100%);"></div>
+          <div style="position:absolute;top:23px;left:23px;width:109px;height:109px;background:white;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
+            <div style="font-family:Fraunces,serif;font-size:1.05rem;font-weight:700;color:var(--ink);">S/ 10.46M</div>
+            <div style="font-size:.63rem;color:var(--stone-400);">Total ano 1</div>
+          </div>
+        </div>
+        <div style="width:100%;display:flex;flex-direction:column;gap:.6rem;">
+          <div style="display:flex;align-items:center;gap:.6rem;padding:.5rem;background:rgba(190,46,50,.06);border-radius:6px;">
+            <div style="width:13px;height:13px;background:var(--sisol-red);border-radius:3px;flex-shrink:0;"></div>
+            <div><div style="font-size:.77rem;font-weight:700;color:var(--sisol-red);">SISOL — 88.8%</div><div style="font-size:.69rem;color:var(--stone-600);">S/ 9,287,236 / ano</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:.6rem;padding:.5rem;background:rgba(47,55,114,.06);border-radius:6px;">
+            <div style="width:13px;height:13px;background:var(--mml-blue);border-radius:3px;flex-shrink:0;"></div>
+            <div><div style="font-size:.77rem;font-weight:700;color:var(--mml-blue);">MML — 11.2%</div><div style="font-size:.69rem;color:var(--stone-600);">S/ 1,174,800 (unica vez)</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHART 3: Barras verticales -->
+      <div style="background:white;border-radius:14px;padding:1.5rem;box-shadow:0 2px 16px rgba(0,0,0,.06);border:1px solid var(--stone-200);">
+        <h4 style="font-family:Fraunces,serif;font-size:.95rem;color:var(--ink);margin-bottom:.25rem;font-weight:600;">Inversion vs Retorno estimado</h4>
+        <p style="font-size:.7rem;color:var(--stone-400);margin-bottom:1rem;font-family:'JetBrains Mono',monospace;">Millones de S/ · Ano 1</p>
+        <div style="display:flex;align-items:flex-end;justify-content:center;gap:1rem;height:145px;padding-bottom:.25rem;border-bottom:1px solid #eee;margin-bottom:.7rem;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex:1;">
+            <span style="font-size:.67rem;font-weight:700;color:#7D5A00;">1.64M</span>
+            <div style="width:100%;height:13px;background:var(--gold);border-radius:4px 4px 0 0;opacity:.9;"></div>
+            <div style="font-size:.63rem;color:var(--stone-600);text-align:center;line-height:1.2;">Inv. inicial<br><span style="color:var(--stone-400);">unica vez</span></div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex:1;">
+            <span style="font-size:.67rem;font-weight:700;color:var(--sisol-red-dark);">8.82M</span>
+            <div style="width:100%;height:72px;background:var(--sisol-red);border-radius:4px 4px 0 0;opacity:.85;"></div>
+            <div style="font-size:.63rem;color:var(--stone-600);text-align:center;line-height:1.2;">Gasto anual<br><span style="color:var(--stone-400);">SISOL</span></div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex:1;">
+            <span style="font-size:.67rem;font-weight:700;color:var(--mml-blue-dark);">17.54M</span>
+            <div style="width:100%;height:143px;background:var(--mml-blue);border-radius:4px 4px 0 0;opacity:.85;"></div>
+            <div style="font-size:.63rem;color:var(--stone-600);text-align:center;line-height:1.2;">Beneficio<br><span style="color:var(--stone-400);">estimado</span></div>
+          </div>
+        </div>
+        <div style="padding:.5rem;background:rgba(47,133,90,.08);border-radius:6px;text-align:center;">
+          <span style="font-size:.73rem;font-weight:700;color:#2F855A;">ROI: 1.68&times; la inversion anual total</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CRONOGRAMA DE IMPLEMENTACION v3.0 -->
+<section id="cronograma" style="padding:3.5rem 0;background:white;border-top:1px solid var(--stone-200);">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:2.5rem;">
+      <span style="display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-dark);background:rgba(201,169,97,.12);padding:.3rem 1rem;border-radius:100px;margin-bottom:.8rem;">06 · Hoja de Ruta</span>
+      <h2 style="font-family:Fraunces,serif;font-size:2rem;color:var(--ink);margin-bottom:.5rem;font-weight:700;letter-spacing:-.02em;">Cronograma de <em style="color:var(--gold-dark);font-style:normal;">Implementacion</em></h2>
+      <p style="font-size:.95rem;color:var(--stone-600);max-width:580px;margin:0 auto;">Despliegue progresivo en 6 meses — De la licitacion al 100% operativo</p>
+    </div>
+    <div style="overflow-x:auto;">
+    <div style="min-width:640px;">
+      <!-- Cabecera meses -->
+      <div style="display:grid;grid-template-columns:180px repeat(6,1fr);gap:4px;margin-bottom:6px;align-items:center;">
+        <div></div>
+        <div style="text-align:center;font-size:.68rem;font-family:'JetBrains Mono',monospace;color:var(--stone-400);font-weight:600;padding:4px;">MES 1</div>
+        <div style="text-align:center;font-size:.68rem;font-family:'JetBrains Mono',monospace;color:var(--stone-400);font-weight:600;padding:4px;">MES 2</div>
+        <div style="text-align:center;font-size:.68rem;font-family:'JetBrains Mono',monospace;color:var(--stone-400);font-weight:600;padding:4px;">MES 3</div>
+        <div style="text-align:center;font-size:.68rem;font-family:'JetBrains Mono',monospace;color:var(--stone-400);font-weight:600;padding:4px;">MES 4</div>
+        <div style="text-align:center;font-size:.68rem;font-family:'JetBrains Mono',monospace;color:var(--stone-400);font-weight:600;padding:4px;">MES 5</div>
+        <div style="text-align:center;font-size:.68rem;font-family:'JetBrains Mono',monospace;color:var(--stone-400);font-weight:600;padding:4px;">MES 6</div>
+      </div>
+      <!-- Fase 1 -->
+      <div style="display:grid;grid-template-columns:180px repeat(6,1fr);gap:4px;margin-bottom:7px;align-items:center;">
+        <div style="padding:.5rem;background:rgba(190,46,50,.06);border-radius:6px;border-left:3px solid var(--sisol-red);">
+          <div style="font-size:.7rem;font-weight:700;color:var(--sisol-red);">FASE 1</div>
+          <div style="font-size:.67rem;color:var(--stone-600);">Contratacion y licitacion</div>
+          <div style="font-size:.6rem;color:var(--stone-400);font-family:'JetBrains Mono',monospace;margin-top:2px;">SISOL/Logistica</div>
+        </div>
+        <div style="background:var(--sisol-red);border-radius:4px;height:32px;opacity:.85;display:flex;align-items:center;justify-content:flex-end;padding-right:6px;"><span style="color:white;font-size:.58rem;font-weight:600;">&#9670; Inicio</span></div>
+        <div style="background:var(--sisol-red);border-radius:4px;height:32px;opacity:.7;"></div>
+        <div style="height:32px;"></div><div style="height:32px;"></div><div style="height:32px;"></div><div style="height:32px;"></div>
+      </div>
+      <!-- Fase 2 -->
+      <div style="display:grid;grid-template-columns:180px repeat(6,1fr);gap:4px;margin-bottom:7px;align-items:center;">
+        <div style="padding:.5rem;background:rgba(201,169,97,.1);border-radius:6px;border-left:3px solid var(--gold);">
+          <div style="font-size:.7rem;font-weight:700;color:var(--gold-dark);">FASE 2</div>
+          <div style="font-size:.67rem;color:var(--stone-600);">Equipamiento y formacion</div>
+          <div style="font-size:.6rem;color:var(--stone-400);font-family:'JetBrains Mono',monospace;margin-top:2px;">RRHH/Operaciones</div>
+        </div>
+        <div style="height:32px;"></div><div style="height:32px;"></div>
+        <div style="background:var(--gold);border-radius:4px;height:32px;opacity:.8;display:flex;align-items:center;justify-content:flex-end;padding-right:6px;"><span style="color:white;font-size:.58rem;font-weight:600;">&#9670; Motos</span></div>
+        <div style="background:var(--gold);border-radius:4px;height:32px;opacity:.68;"></div>
+        <div style="height:32px;"></div><div style="height:32px;"></div>
+      </div>
+      <!-- Fase 3 -->
+      <div style="display:grid;grid-template-columns:180px repeat(6,1fr);gap:4px;margin-bottom:7px;align-items:center;">
+        <div style="padding:.5rem;background:rgba(47,55,114,.06);border-radius:6px;border-left:3px solid var(--mml-blue);">
+          <div style="font-size:.7rem;font-weight:700;color:var(--mml-blue);">FASE 3</div>
+          <div style="font-size:.67rem;color:var(--stone-600);">Piloto 1 distrito (Ate)</div>
+          <div style="font-size:.6rem;color:var(--stone-400);font-family:'JetBrains Mono',monospace;margin-top:2px;">Jefe GRAVE</div>
+        </div>
+        <div style="height:32px;"></div><div style="height:32px;"></div><div style="height:32px;"></div><div style="height:32px;"></div>
+        <div style="background:var(--mml-blue);border-radius:4px;height:32px;opacity:.85;display:flex;align-items:center;justify-content:flex-end;padding-right:6px;"><span style="color:white;font-size:.58rem;font-weight:600;">&#9670; Piloto</span></div>
+        <div style="height:32px;"></div>
+      </div>
+      <!-- Fase 4 -->
+      <div style="display:grid;grid-template-columns:180px repeat(6,1fr);gap:4px;align-items:center;">
+        <div style="padding:.5rem;background:rgba(47,133,90,.08);border-radius:6px;border-left:3px solid #2F855A;">
+          <div style="font-size:.7rem;font-weight:700;color:#2F855A;">FASE 4</div>
+          <div style="font-size:.67rem;color:var(--stone-600);">Despliegue 4 distritos</div>
+          <div style="font-size:.6rem;color:var(--stone-400);font-family:'JetBrains Mono',monospace;margin-top:2px;">Gerencia SISOL</div>
+        </div>
+        <div style="height:32px;"></div><div style="height:32px;"></div><div style="height:32px;"></div><div style="height:32px;"></div><div style="height:32px;"></div>
+        <div style="background:#2F855A;border-radius:4px;height:32px;opacity:.85;display:flex;align-items:center;justify-content:flex-end;padding-right:6px;"><span style="color:white;font-size:.58rem;font-weight:600;">&#9670; 100%</span></div>
+      </div>
+    </div>
+    </div>
+
+    <!-- Actividades clave -->
+    <div style="margin-top:2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;">
+      <div style="padding:.8rem;background:rgba(190,46,50,.05);border-radius:8px;border-top:3px solid var(--sisol-red);">
+        <div style="font-size:.7rem;font-weight:700;color:var(--sisol-red);margin-bottom:.35rem;">M1-M2 · Fase 1</div>
+        <ul style="font-size:.71rem;color:var(--stone-600);margin:0;padding-left:1rem;line-height:1.65;">
+          <li>Proceso CAS TEM y enfermeros</li>
+          <li>Licitacion 33 motos Honda XRE 300</li>
+          <li>Contrato operador tercerizado</li>
+          <li>Acuerdo interoperabilidad SAMU</li>
+        </ul>
+      </div>
+      <div style="padding:.8rem;background:rgba(201,169,97,.08);border-radius:8px;border-top:3px solid var(--gold);">
+        <div style="font-size:.7rem;font-weight:700;color:var(--gold-dark);margin-bottom:.35rem;">M3-M4 · Fase 2</div>
+        <ul style="font-size:.71rem;color:var(--stone-600);margin:0;padding-left:1rem;line-height:1.65;">
+          <li>Entrega motos + equipamiento</li>
+          <li>Maletines medicos configurados</li>
+          <li>Capacitacion TEM prehospitalario</li>
+          <li>Instalacion central GRAVE SISOL</li>
+        </ul>
+      </div>
+      <div style="padding:.8rem;background:rgba(47,55,114,.05);border-radius:8px;border-top:3px solid var(--mml-blue);">
+        <div style="font-size:.7rem;font-weight:700;color:var(--mml-blue);margin-bottom:.35rem;">M5 · Fase 3</div>
+        <ul style="font-size:.71rem;color:var(--stone-600);margin:0;padding-left:1rem;line-height:1.65;">
+          <li>Piloto Ate (12 motos)</li>
+          <li>Integracion con SAMU 106</li>
+          <li>Ajuste de protocolos clinicos</li>
+          <li>Reporte KPIs semana 1</li>
+        </ul>
+      </div>
+      <div style="padding:.8rem;background:rgba(47,133,90,.06);border-radius:8px;border-top:3px solid #2F855A;">
+        <div style="font-size:.7rem;font-weight:700;color:#2F855A;margin-bottom:.35rem;">M6 · Fase 4</div>
+        <ul style="font-size:.71rem;color:var(--stone-600);margin:0;padding-left:1rem;line-height:1.65;">
+          <li>Activacion Comas, Cercado, VMT</li>
+          <li>33 motos operativas 24/7</li>
+          <li>Dashboard monitoreo en vivo</li>
+          <li>Informe resultados al Directorio</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- ESTUDIO DE IMPACTO -->
 <section id="impacto" class="impact-section">
   <div class="container">
@@ -3125,6 +3447,138 @@
             <li>Cuestionamiento por uso de recursos SISOL para proyecto MML (mitigar con transferencia presupuestal explícita)</li>
           </ul>
         </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- RIESGOS Y MITIGACION v3.0 -->
+<section id="riesgos" style="padding:3.5rem 0;background:var(--stone-100);border-top:1px solid var(--stone-200);">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:2.5rem;">
+      <span style="display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--sisol-red-dark);background:rgba(107,21,24,.08);padding:.3rem 1rem;border-radius:100px;margin-bottom:.8rem;">08 · Gestion de Riesgos</span>
+      <h2 style="font-family:Fraunces,serif;font-size:2rem;color:var(--ink);margin-bottom:.5rem;font-weight:700;letter-spacing:-.02em;">Riesgos y <em style="color:var(--sisol-red-dark);font-style:normal;">Mitigacion</em></h2>
+      <p style="font-size:.95rem;color:var(--stone-600);max-width:600px;margin:0 auto;">Riesgos identificados y estrategias de mitigacion por categoria</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1rem;max-width:920px;margin:0 auto;">
+
+      <!-- OPERACIONAL -->
+      <div class="acc-item" style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06);">
+        <div class="acc-header" onclick="toggleAcc(this)" style="background:white;border-left:4px solid #BE2E32;border-radius:12px 12px 0 0;">
+          <div class="acc-header-content">
+            <div class="acc-number" style="background:rgba(190,46,50,.12);color:var(--sisol-red);">i.</div>
+            <div>
+              <div class="acc-title">Riesgos Operacionales</div>
+              <div class="acc-subtitle">Impacto ALTO &nbsp;·&nbsp; Probabilidad MEDIA &nbsp;·&nbsp; Mitigacion disponible</div>
+            </div>
+          </div>
+          <div class="acc-toggle"></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <table style="font-size:.81rem;">
+            <thead><tr><th>Riesgo</th><th>Prob.</th><th>Impacto</th><th>Mitigacion</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Accidentes de transito del personal en moto</strong></td>
+                <td><span style="background:#FED7D7;color:#9B2C2C;padding:2px 6px;border-radius:4px;font-size:.7rem;font-weight:600;">ALTA</span></td>
+                <td><span style="background:#FED7D7;color:#9B2C2C;padding:2px 6px;border-radius:4px;font-size:.7rem;font-weight:600;">CRITICO</span></td>
+                <td>SCTR Salud + SCTR Pensiones obligatorio (D.S. 003-98-SA, riesgo IV-V). Protocolo conduccion defensiva. Equipamiento de seguridad vial certificado.</td>
+              </tr>
+              <tr>
+                <td><strong>Rotacion alta de personal tercerizado</strong></td>
+                <td><span style="background:#FEFCBF;color:#7B341E;padding:2px 6px;border-radius:4px;font-size:.7rem;font-weight:600;">MEDIA</span></td>
+                <td><span style="background:#FEFCBF;color:#7B341E;padding:2px 6px;border-radius:4px;font-size:.7rem;font-weight:600;">ALTO</span></td>
+                <td>Pool de reserva del 20% en contrato con operador. Capacitacion continua mensual. Incentivo de permanencia a 6 meses.</td>
+              </tr>
+              <tr>
+                <td><strong>Falla o robo de motos y equipos medicos</strong></td>
+                <td><span style="background:#FEFCBF;color:#7B341E;padding:2px 6px;border-radius:4px;font-size:.7rem;font-weight:600;">MEDIA</span></td>
+                <td><span style="background:#FEFCBF;color:#7B341E;padding:2px 6px;border-radius:4px;font-size:.7rem;font-weight:600;">MEDIO</span></td>
+                <td>Seguro SOAT + todo riesgo. Mantenimiento preventivo mensual. GPS en tiempo real. 2 motos de reserva por distrito.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div></div>
+      </div>
+
+      <!-- LEGAL/NORMATIVO -->
+      <div class="acc-item" style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06);">
+        <div class="acc-header" onclick="toggleAcc(this)" style="background:white;border-left:4px solid #B7791F;border-radius:12px 12px 0 0;">
+          <div class="acc-header-content">
+            <div class="acc-number" style="background:rgba(183,121,31,.12);color:#B7791F;">ii.</div>
+            <div>
+              <div class="acc-title">Riesgos Legales y Normativos</div>
+              <div class="acc-subtitle">Impacto ALTO &nbsp;·&nbsp; Probabilidad BAJA-MEDIA &nbsp;·&nbsp; Mitigacion por marco regulatorio</div>
+            </div>
+          </div>
+          <div class="acc-toggle"></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <table style="font-size:.81rem;">
+            <thead><tr><th>Riesgo</th><th>Prob.</th><th>Impacto</th><th>Mitigacion</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Habilitacion del personal como unidad SAMU</strong></td>
+                <td><span style="background:#FEFCBF;color:#7B341E;padding:2px 6px;border-radius:4px;font-size:.7rem;font-weight:600;">MEDIA</span></td>
+                <td><span style="background:#FED7D7;color:#9B2C2C;padding:2px 6px;border-radius:4px;font-size:.7rem;font-weight:600;">CRITICO</span></td>
+                <td>Convenio SISOL-MINSA firmado previo al inicio. TEM con certificacion MINSA vigente. Enfermeros con RNE activo. Prerrequisito en contrato del operador.</td>
+              </tr>
+              <tr>
+                <td><strong>Responsabilidad civil por atencion prehospitalaria</strong></td>
+                <td><span style="background:#C6F6D5;color:#22543D;padding:2px 6px;border-radius:4px;font-size:.7rem;font-weight:600;">BAJA</span></td>
+                <td><span style="background:#FED7D7;color:#9B2C2C;padding:2px 6px;border-radius:4px;font-size:.7rem;font-weight:600;">ALTO</span></td>
+                <td>Protocolo clinico estandarizado (PHTLS/AHA). Registro electronico de cada atencion. Seguro de responsabilidad civil. Consentimiento verbal protocolizado.</td>
+              </tr>
+              <tr>
+                <td><strong>Normativa MML sobre tercerizacion en salud</strong></td>
+                <td><span style="background:#C6F6D5;color:#22543D;padding:2px 6px;border-radius:4px;font-size:.7rem;font-weight:600;">BAJA</span></td>
+                <td><span style="background:#FEFCBF;color:#7B341E;padding:2px 6px;border-radius:4px;font-size:.7rem;font-weight:600;">MEDIO</span></td>
+                <td>La locacion de servicios especializados es legal (D.Leg. 1057 + D.S. 003-98-SA). SCTR obligatorio reduce exposicion de SISOL. Validar con asesoria legal MML antes de licitar.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div></div>
+      </div>
+
+      <!-- FINANCIERO -->
+      <div class="acc-item" style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06);">
+        <div class="acc-header" onclick="toggleAcc(this)" style="background:white;border-left:4px solid #2F855A;border-radius:12px 12px 0 0;">
+          <div class="acc-header-content">
+            <div class="acc-number" style="background:rgba(47,133,90,.12);color:#2F855A;">iii.</div>
+            <div>
+              <div class="acc-title">Riesgos Financieros</div>
+              <div class="acc-subtitle">Impacto MEDIO-ALTO &nbsp;·&nbsp; Probabilidad BAJA &nbsp;·&nbsp; Mitigacion estructural</div>
+            </div>
+          </div>
+          <div class="acc-toggle"></div>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <table style="font-size:.81rem;">
+            <thead><tr><th>Riesgo</th><th>Prob.</th><th>Impacto</th><th>Mitigacion</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Recorte presupuestal MML/SISOL durante operacion</strong></td>
+                <td><span style="background:#C6F6D5;color:#22543D;padding:2px 6px;border-radius:4px;font-size:.7rem;font-weight:600;">BAJA</span></td>
+                <td><span style="background:#FED7D7;color:#9B2C2C;padding:2px 6px;border-radius:4px;font-size:.7rem;font-weight:600;">CRITICO</span></td>
+                <td>Ordenanza de Concejo Metropolitano que garantice presupuesto multianual. Plan de reduccion gradual documentado para escenarios de estres fiscal.</td>
+              </tr>
+              <tr>
+                <td><strong>Incremento de costos del operador tercero</strong></td>
+                <td><span style="background:#FEFCBF;color:#7B341E;padding:2px 6px;border-radius:4px;font-size:.7rem;font-weight:600;">MEDIA</span></td>
+                <td><span style="background:#FEFCBF;color:#7B341E;padding:2px 6px;border-radius:4px;font-size:.7rem;font-weight:600;">MEDIO</span></td>
+                <td>Contrato con formula de reajuste vinculada al IPC oficial (BCRP). Clausula de revision semestral. Penalidad por renegociacion unilateral.</td>
+              </tr>
+              <tr>
+                <td><strong>Variacion tipo de cambio (repuestos Honda)</strong></td>
+                <td><span style="background:#FEFCBF;color:#7B341E;padding:2px 6px;border-radius:4px;font-size:.7rem;font-weight:600;">MEDIA</span></td>
+                <td><span style="background:#C6F6D5;color:#22543D;padding:2px 6px;border-radius:4px;font-size:.7rem;font-weight:600;">BAJO</span></td>
+                <td>Stock de repuestos criticos comprado en bloque al inicio. Honda XRE 300 fabricada en Brasil — menor volatilidad que repuestos japoneses/europeos.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div></div>
       </div>
 
     </div>
